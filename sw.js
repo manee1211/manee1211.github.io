@@ -21,16 +21,16 @@
 
 'use strict';
 self.addEventListener('push', function(event) {
-  console.log('[Service Worker] Push Received.');
-  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
-
-  const title = `${event.data.text()}`;
+  const data = `${event.data.text()}`;
+  var payload = JSON.parse(data);
+  var title = payload.hd;
   const options = {
-    body: 'Yay it works.',
+    body: payload.msg,
     icon: 'images/icon.png',
     badge: 'images/badge.png',
 	image:'images/icon.png'
   };
+
 
   event.waitUntil(self.registration.showNotification(title, options));
 });
