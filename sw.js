@@ -8,9 +8,9 @@ self.addEventListener('push', function(event) {
   var imageUrl = payload.i_thb;
   const options = {
     body: payload.msg,
-    icon: imageUrl,
+    icon: 'images/icon.png',
     badge: 'images/badge.png',
-	image:'images/icon.png'
+	image:imageUrl
   };
 
 
